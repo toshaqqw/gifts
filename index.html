@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Easy Gift Cash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#222222" />
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>🎁 Easy Gift Cash</h1>
+    <p id="status">Ожидание запуска...</p>
+    <button id="openBtn">Открыть подарок</button>
+  </div>
+
+  <!-- Подключение Telegram WebApp API -->
+  <script>
+    // Проверка запуска в Telegram
+    const tg = window.Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand();
+      document.getElementById('status').textContent = 'WebApp запущен ✅';
+    } else {
+      document.getElementById('status').textContent = 'Запущено вне Telegram';
+    }
+  </script>
+
+  <!-- Ваш основной JS -->
+  <script src="main.js"></script>
+</body>
+</html>
